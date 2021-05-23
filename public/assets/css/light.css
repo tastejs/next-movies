@@ -1,0 +1,23 @@
+
+/* MEMO: not used but keep it for future use */
+/* light.css: 👉 dark-on-light */
+:root {
+  --color: #0c0f0a;
+
+  /* TODO: not used */
+  --link-color: rgb(220, 0, 78);
+
+  /* MEMO: inspired by https://web.dev/prefers-color-scheme/#avoid-pure-white */
+  --palette-background-default: #fafafa;
+  --palette-text-primary: rgba(0, 0, 0, 0.87);
+  --palette-text-secondary: rgba(0, 0, 0, 0.54);
+  --palette-text-hint: rgba(0, 0, 0, 0.38);
+  --palette-text-disabled: rgba(0, 0, 0, 0.38);
+  --palette-divider: rgba(0, 0, 0, 0.12);
+
+  /* TODO: not used */
+  --palette-action-active: rgba(0, 0, 0, 0.54);
+  --palette-action-hover: rgba(0, 0, 0, 0.04);
+
+  --palette-background-paper: #fff;
+}

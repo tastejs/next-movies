@@ -1,0 +1,30 @@
+
+/* MEMO: not used but keep it for future use */
+/* dark.css: 👉 light-on-dark */
+:root {
+  --color: #fafafa;
+  /* MEMO: drop image filter in the dark mode for now */
+  --image-filter: grayscale(0%);
+
+  /* TODO: not used */
+  /* pink 200 from https://material-ui.com/customization/color/ */
+  --link-color: #f48fb1;
+
+  --palette-background-default: #303030;
+  --palette-text-primary: #fff;
+  --palette-text-secondary: rgba(255, 255, 255, 0.7);
+  --palette-text-hint: rgba(255, 255, 255, 0.5);
+  --palette-text-disabled: rgba(255, 255, 255, 0.5);
+  --palette-divider: rgba(255, 255, 255, 0.12);
+
+  /* TODO: not used */
+  --palette-action-active: #fff;
+  --palette-action-hover: rgba(255, 255, 255, 0.08);
+
+  --palette-background-paper: #424242;
+}
+
+/* MEMO: inspired by https://web.dev/prefers-color-scheme/#re-colorize-and-darken-photographic-images */
+img:not([src*=".svg"]) {
+  filter: var(--image-filter);
+}
