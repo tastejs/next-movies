@@ -1,31 +1,56 @@
+/*
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the 'License');
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-// MEMO: not used but keep it for future use
-const Toggle = ({ checked, onChange }) => (
+import withTheme from 'utils/hocs/withTheme';
+
+const Toggle = ({
+  theme,
+  id,
+  checked,
+  onChange
+}) => (
   <>
     <span className='toggle'>
       <input
-        // TODO: rename as dark-mode-check
-        className='dark-mode-check'
+        className='toggle-track'
         type='checkbox'
         checked={checked}
         onChange={onChange}
-        id='dark-mode-check' />
-      <label htmlFor='dark-mode-check' />
+        id={`toggle-track-${id}`} />
+      <label
+        style={{color: 'transparent'}}
+        htmlFor={`toggle-track-${id}`}>
+        Toggle Switch
+      </label>
     </span>
     <style jsx>{`
       .toggle {
         position: relative;
-        padding: 0 4px;
+        padding: 0 6px;
         display: flex;
         align-items: center;
       }
 
-      input[type='checkbox'].dark-mode-check {
-        width: 40px;
-        height: 10px;
-        background: #555;
+      input[type='checkbox'].toggle-track {
+        width: 34px;
+        height: 14px;
+        opacity: 0.5;
+        background-color: var(--palette-secondary-main);
         position: relative;
-        border-radius: 5px;
+        border-radius: 7px;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -34,29 +59,27 @@ const Toggle = ({ checked, onChange }) => (
         outline: none;
       }
 
-      input[type='checkbox'].dark-mode-check:checked + label {
-        left: 30px;
+      input[type='checkbox'].toggle-track:checked + label {
+        left: 20px;
       }
     
-      input[type='checkbox'].dark-mode-check:focus-visible {
+      input[type='checkbox'].toggle-track:focus-visible {
         outline: solid 2px white;
       }
     
-      input[type='checkbox'].dark-mode-check + label {
+      input[type='checkbox'].toggle-track + label {
         display: inline-block;
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
         border-radius: 50%;
-        transition: all 0.3s ease;
+        transition: all ${theme.transitions.duration.standard}ms ${theme.transitions.easing.easeInOut};
         cursor: pointer;
         position: absolute;
         left: 2px;
-        background: #fff;
-        opacity: 0.9;
-        background-color: #f6f6f6;
+        background-color: var(--palette-secondary-main);
       }
     `}</style>
   </>
 );
 
-export default Toggle;
+export default withTheme(Toggle);

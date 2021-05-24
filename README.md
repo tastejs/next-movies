@@ -1,4 +1,8 @@
 
 ## Build version on Vercel
 
-https://movie-browser.vercel.app
+https://movies-pi.vercel.app
+
+## Build version on Netlify
+
+https://happy-shannon-43e24e.netlify.app

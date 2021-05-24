@@ -1,27 +1,46 @@
+/*
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the 'License');
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-// TODO: drop with react-slick
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-// TODO: drop with react-modal-video
-import 'react-modal-video/css/modal-video.min.css';
-
+import { Provider } from 'react-redux';
 import globalStyles from 'styles/global';
+
+import { useStore } from 'store';
 import ThemeProvider from 'utils/hocs/ThemeProvider';
-import { wrapper } from 'store';
 import Layout from 'parts/Layout';
+import { AuthProvider } from 'utils/hocs/AuthProvider';
 
-const MyApp = ({ Component, pageProps }) => (
-  <>
-    <ThemeProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
-    <style jsx global>
-      {globalStyles}
-    </style>
-  </>
-);
+const MyApp = ({ Component, pageProps }) => {
+  const store = useStore(pageProps.initialReduxState);
 
-// TODO: Memoize Redux selectors (with reselect for example) from https://houssein.me/progressive-react 
-export default wrapper.withRedux(MyApp);
+  return (
+    <>
+      <Provider store={store}>
+        <ThemeProvider>
+          <AuthProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </AuthProvider>
+        </ThemeProvider>
+      </Provider>
+      <style jsx global>
+        {globalStyles}
+      </style>
+    </>
+  );
+};
+
+export default MyApp;

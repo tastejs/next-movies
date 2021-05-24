@@ -1,5 +1,26 @@
+/*
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the 'License');
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-import QUERY_PARAMS from './query-params';
+// TODO: <
+/**
+ * TODO:
+ * AS_PREFIX can be removed.
+ * PATHNAME instead of HREF could sound better.
+ */
+// TODO: >
 
 const LINKS = Object.freeze({
   HOME: {
@@ -7,20 +28,44 @@ const LINKS = Object.freeze({
     AS_PREFIX: ''
   },
   GENRE: {
-    HREF: `/genre/[${QUERY_PARAMS.NAME}]`,
-    AS_PREFIX: '/genre'
+    HREF: '/genre',
+    AS_PREFIX: ''
   },
   MOVIE: {
-    HREF: `/movie/[${QUERY_PARAMS.ID}]`,
-    AS_PREFIX: '/movie'
+    HREF: '/movie',
+    AS_PREFIX: ''
   },
   PERSON: {
-    HREF: `/person/[${QUERY_PARAMS.ID}]`,
-    AS_PREFIX: '/person'
+    HREF: '/person',
+    AS_PREFIX: ''
   },
   SEARCH: {
-    HREF: `/search/[${QUERY_PARAMS.SEARCH_TERM}]`,
-    AS_PREFIX: '/search'
+    HREF: '/search',
+    AS_PREFIX: ''
+  },
+  LIST: {
+    HREF: '/list',
+    AS_PREFIX: ''
+  },
+  ADD_OR_EDIT_LIST: {
+    HREF: '/list/add-or-edit',
+    AS_PREFIX: ''
+  },
+  REMOVE_LIST: {
+    HREF: '/list/remove',
+    AS_PREFIX: ''
+  },
+  ADD_OR_REMOVE_ITEMS_AT_LIST: {
+    HREF: '/list/add-or-remove-items',
+    AS_PREFIX: ''
+  },
+  CHOOSE_LIST_IMAGE: {
+    HREF: '/list/choose-image',
+    AS_PREFIX: ''
+  },
+  MY_LISTS: {
+    HREF: '/my-lists',
+    AS_PREFIX: ''
   },
   NOT_FOUND: {
     HREF: '/404',

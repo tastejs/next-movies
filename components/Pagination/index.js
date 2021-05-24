@@ -1,55 +1,46 @@
+/*
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the 'License');
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 import PaginationWrapper from './PaginationWrapper';
 import PaginationButton from './PaginationButton';
+import CLASS_NAMES from 'utils/constants/class-names';
 
-const PAGINATION_LAYOUT_TYPES = {
-  LEFT_ONE: 'left-one',
-  RIGHT_ONE: 'right-one',
-  BOTH: 'both'
-};
-
-const PAGINATION_BEHAVIOR_TYPES ={
+const PAGINATION_BEHAVIOR_TYPES = Object.freeze({
   PREV: 'prev',
   NEXT: 'next'
-};
+});
 
-const Pagination = ({ page, totalPages }) => {
-  if (totalPages === 1) {
-    return null;
-  }
-
-  if (page < totalPages && page === 1) {
-    return (
-      <PaginationWrapper type={PAGINATION_LAYOUT_TYPES.RIGHT_ONE}>
-        <PaginationButton
-          page={page}
-          type={PAGINATION_BEHAVIOR_TYPES.NEXT} />
-      </PaginationWrapper>
-    );
-  } else if (page < totalPages) {
-    return (
-      <PaginationWrapper type={PAGINATION_LAYOUT_TYPES.BOTH}>
-        <PaginationButton
-          page={page}
-          type={PAGINATION_BEHAVIOR_TYPES.PREV} />
-        <PaginationButton
-          page={page}
-          type={PAGINATION_BEHAVIOR_TYPES.NEXT} />
-      </PaginationWrapper>
-    );
-  } else {
-    return (
-      <PaginationWrapper type={PAGINATION_LAYOUT_TYPES.LEFT_ONE}>
-        <PaginationButton
-          page={page}
-          type={PAGINATION_BEHAVIOR_TYPES.PREV} />
-      </PaginationWrapper>
-    );
-  }
-};
+const Pagination = ({
+  className,
+  page,
+  totalPages
+}) => (
+  <PaginationWrapper className={className}>
+    <PaginationButton
+      className={page > 1 ? CLASS_NAMES.VISIBLE : CLASS_NAMES.INVISIBLE}
+      page={page}
+      type={PAGINATION_BEHAVIOR_TYPES.PREV} />
+    <PaginationButton
+      className={page < totalPages ? CLASS_NAMES.VISIBLE : CLASS_NAMES.INVISIBLE}
+      page={page}
+      type={PAGINATION_BEHAVIOR_TYPES.NEXT} />
+  </PaginationWrapper>
+);
 
 export {
-  PAGINATION_LAYOUT_TYPES,
   PAGINATION_BEHAVIOR_TYPES
 };
 

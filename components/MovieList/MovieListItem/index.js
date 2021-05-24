@@ -1,12 +1,34 @@
+/*
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the 'License');
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 import LazyLoad from 'react-lazyload';
 
-import MovieLink from './MovieLink';
-import MovieImage from './MovieImage';
-import DetailsPanelWrapper from './DetailsPanelWrapper';
-import MovieTitle from './MovieTitle';
+import PosterLink from 'components/PosterLink';
+import Scenery from 'components/Scenery';
+import DetailsPanelWrapper from 'components/DetailsPanelWrapper';
+import PosterTitle from 'components/PosterTitle';
 import RatingInfo from './RatingInfo';
 import LINKS from 'utils/constants/links';
+import CLASS_NAMES from 'utils/constants/class-names';
+import { W342H513 } from 'config/image-sizes';
+import QUERY_PARAMS from 'utils/constants/query-params';
+
+const POSTER_LINK_CLASS_NAME = 'poster-link';
+const POSTER_TITLE_CLASS_NAME = 'poster-title-color';
+const RATING_INFO_CLASS_NAME = 'rating-info-color';
 
 const MovieListItem = ({
   theme,
@@ -17,36 +39,44 @@ const MovieListItem = ({
     <LazyLoad
       height={200}
       offset={200}>
-      <MovieLink
-        className='movie-link-inner-wrapper'
-        href={LINKS.MOVIE.HREF}
-        as={`${LINKS.MOVIE.AS_PREFIX}/${movie.id}`}>
-        <MovieImage
-          theme={theme}
-          className='movie-image-border-radius movie-image-box-shadow'
-          // TODO: hardcoded size
-          src={`${baseUrl}w342${movie.poster_path}`} />
+      <PosterLink
+        className={POSTER_LINK_CLASS_NAME}
+        href={{
+          pathname: LINKS.MOVIE.HREF,
+          query: {
+            [QUERY_PARAMS.ID]: movie.id,
+            [QUERY_PARAMS.PAGE]: 1
+          }
+        }}>
+        <Scenery
+          width={W342H513.WIDTH}
+          height={W342H513.HEIGHT}
+          src={`${baseUrl}w${W342H513.WIDTH}${movie.poster_path}`} />
         <DetailsPanelWrapper theme={theme}>
-          <MovieTitle className='movie-title-color'>{movie.title}</MovieTitle>
+          <PosterTitle
+            theme={theme}
+            className={POSTER_TITLE_CLASS_NAME}>
+            {movie.title}
+          </PosterTitle>
           <RatingInfo
-            className='rating-info-color'
+            className={RATING_INFO_CLASS_NAME}
             voteAverage={movie.vote_average}
             tooltip={`${movie.vote_average} average rating on ${movie.vote_count} votes`} />
         </DetailsPanelWrapper>
-      </MovieLink>
+      </PosterLink>
     </LazyLoad>
     <style jsx>{`
-      :global(.movie-link-inner-wrapper:hover .image-loading-placeholder) {
+      :global(.${POSTER_LINK_CLASS_NAME}:hover .${CLASS_NAMES.IMAGE_LOADING_PLACEHOLDER}) {
         box-shadow: ${theme.shadows[0]};
         border-radius: 0;
       }
 
-      :global(.movie-link-inner-wrapper:hover .movie-title-color) {
+      :global(.${POSTER_LINK_CLASS_NAME}:hover .${POSTER_TITLE_CLASS_NAME}) {
         color: var(--palette-text-primary);
       }
 
-      :global(.movie-link-inner-wrapper:hover .rating-info-color) {
-        color: var(--palette-primary-lighter);
+      :global(.${POSTER_LINK_CLASS_NAME}:hover .${RATING_INFO_CLASS_NAME} .${CLASS_NAMES.RATING}) {
+        color: var(--palette-warning-light);
       }
     `}</style>
   </>
