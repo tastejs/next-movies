@@ -1,26 +1,20 @@
+/*
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the 'License');
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 const theme = {
-  palette: {
-    primary: {
-      light: {
-        hex: '#546e7a',
-        rgb: '84, 110, 122'
-      },
-      main: {
-        hex: '#37474f',
-        rgb: '55, 71, 79'
-      },
-      dark: {
-        hex: '#263238',
-        rgb: '38, 50, 56'
-      },
-      lighter: {
-        hex: '#b0bec5',
-        rgb: '176, 190, 197'
-      },
-      contrastText: '#fff'
-    }
-  },
   shadows: [
     'none',
     '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
@@ -68,31 +62,53 @@ const theme = {
   shape: {
     borderRadius: 4
   },
+  zIndex: {
+    mobileStepper: 1000,
+    speedDial: 1050,
+    appBar: 1100,
+    drawer: 1200,
+    modal: 1300,
+    snackbar: 1400,
+    tooltip: 1500
+  },
+  typography: {
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontWeightBold: 700
+  },
   /**
-   * MEMO: we could follow Material UI in other theming options
+   * MEMO: could follow Material UI in other theming options
    * Material UI breakpoints
    * MUI typography
    * MUI mobile first design principle
    * MUI AppBar and Drawer
+   * MUI Link
    */
+  // TODO: size and mediaQueries should go into custom section and size => sizes
   size: {
-    smallest: '25em', // 275px
-    smaller: '31.25em', // 500px
-    small: '37.5em', // 600px
-    medium: '56.25em', // 900px
-    large: '80em', // 1300px
-    larger: '90em', // 1462.5px
-    largest: '97em', // 1500px
+    smallest: '275px', // 25em
+    smaller: '500px', // 31.25em
+    small: '600px', // 37.5em
+    medium: '900px', // 56.25em
+    large: '1300px', // 80em
+    larger: '1462.5px', // 90em
+    largest: '1500px' // 97em
   },
   mediaQueries: {
-    smallest: 'only screen and (max-width: 25em)',
-    smaller: 'only screen and (max-width: 31.25em)',
-    small: 'only screen and (max-width: 37.5em)',
-    medium: 'only screen and (max-width: 56.25em)',
-    large: 'only screen and (max-width: 80em)',
-    larger: 'only screen and (max-width: 90em)',
-    largest: 'only screen and (max-width: 97em)',
+    smallest: 'only screen and (max-width: 275px)',
+    smaller: 'only screen and (max-width: 500px)',
+    small: 'only screen and (max-width: 600px)',
+    medium: 'only screen and (max-width: 900px)',
+    large: 'only screen and (max-width: 1300px)',
+    larger: 'only screen and (max-width: 1462.5px)',
+    largest: 'only screen and (max-width: 1500px)'
   },
+  custom: {
+    layout: {
+      appBarHeight: 56
+    }
+  }
 };
 
 export default theme;

@@ -1,8 +1,24 @@
+/*
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the 'License');
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 import { useEffect } from 'react';
 import Head from 'next/head';
 import { useDispatch, useSelector } from 'react-redux';
 import { animateScroll as scroll } from 'react-scroll';
+import clsx from 'clsx';
 
 import clearError from 'actions/clearError';
 import LinkButton from 'components/LinkButton';
@@ -11,28 +27,36 @@ import withTheme from 'utils/hocs/withTheme';
 import { ERROR_IMAGE_PATH } from 'utils/constants/image-paths';
 import LINKS from 'utils/constants/links';
 import HomeIcon from 'public/assets/svgs/icons/home.svg';
+import QUERY_PARAMS from 'utils/constants/query-params';
+import STATIC_MOVIE_CATEGORIES from 'utils/constants/static-movie-categories';
 
-const Title = ({ children }) => (
+const Title = ({
+  theme,
+  children
+}) => (
   <>
     <h1 className='title'>{children}</h1>
     <style jsx>{`
       .title {
         color: var(--palette-text-primary);
-        font-size: 3.5rem;
-        font-weight: 300;
+        font-size: 3.75rem;
+        font-weight: ${theme.typography.fontWeightLight};
       }
     `}</style>
   </>
 );
 
-const Subtitle = ({ children }) => (
+const Subtitle = ({
+  theme,
+  children
+}) => (
   <>
     <h2 className='subtitle'>{children}</h2>
     <style jsx>{`
       .subtitle {
         color: var(--palette-text-primary);
-        font-size: 1.8rem;
-        font-weight: 700;
+        font-size: 2.125rem;
+        font-weight: ${theme.typography.fontWeightBold};
       }
     `}</style>
   </>
@@ -44,7 +68,9 @@ const ErrorImage = ({
 }) => (
   <>
     <img
-      className={`error-image ${className}`}
+      width='1080'
+      height='748'
+      className={clsx('error-image', className)}
       {...rest} />
     <style jsx>{`
       .error-image {
@@ -64,32 +90,38 @@ const ErrorBox = ({
   const errors = useSelector(state => state.errors);
   useEffect(() => {
     scroll.scrollToTop({smooth: true});
+
     return () => dispatch(clearError());
   }, [dispatch]);
 
   return (
     <>
-      <PageWrapper className='page-wrapper-outer'>
+      <PageWrapper className='error-box'>
         <Head>
           <title>Oooops!</title>
         </Head>
         <div className='title-section'>
-          <Title>
+          <Title theme={theme}>
             {statusCode
               ? `An error ${statusCode} occurred on server`
               : 'An error occurred on client'}
           </Title>
-          <Subtitle>{errors?.data?.status_message}</Subtitle>
+          <Subtitle theme={theme}>{errors?.data?.status_message}</Subtitle>
         </div>
         <ErrorImage
           src={ERROR_IMAGE_PATH}
           alt='Not found!' />
         <LinkButton
-          href={LINKS.HOME.HREF}
+          href={{
+            pathname: LINKS.HOME.HREF,
+            query: {
+              [QUERY_PARAMS.CATEGORY]: STATIC_MOVIE_CATEGORIES[0].name,
+              [QUERY_PARAMS.PAGE]: 1
+            }
+          }}
           buttonProps={{
-            left: true,
             contained: true,
-            icon: (
+            startIcon: (
               <HomeIcon
                 fill='currentColor'
                 width='1.125em' />
@@ -98,9 +130,10 @@ const ErrorBox = ({
           }} />
       </PageWrapper>
       <style jsx>{`
-        :global(.page-wrapper.page-wrapper-outer) {
+        :global(.page-wrapper.error-box) {
           width: 65%;
-          align-items: center;
+          display: grid;
+          place-items: center;
         }
 
         .title-section {
@@ -109,8 +142,8 @@ const ErrorBox = ({
         }
 
         @media ${theme.mediaQueries.medium} {
-          :global(.page-wrapper.page-wrapper-outer) {
-            width: 100%;
+          :global(.page-wrapper.error-box) {
+            width: 96%;
           }
         }
       `}</style>

@@ -1,0 +1,216 @@
+/*
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the 'License');
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* MEMO: removed border-radius for better and more consistent look and feel */
+/**
+ * Main wrapper
+ */
+ .container {
+  width: 300px;
+  position: relative;
+  font-family: 'Nunito Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+.container *,
+.container *::after,
+.container *::before {
+  box-sizing: inherit;
+}
+
+/**
+ * Value wrapper
+ */
+.value {
+  position: relative;
+  z-index: 1;
+}
+
+.value::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: calc(50% - 9px);
+  right: 19px;
+  width: 11px;
+  height: 11px;
+}
+
+/**
+ * Input
+ */
+.input {
+  display: block;
+  height: 36px;
+  width: 100%;
+  padding: 0 16px;
+  color: var(--palette-text-primary);
+  background-color: var(--palette-background-paper);
+  transition: color var(--duration) var(--timing), background-color var(--duration) var(--timing);
+  border: 1px solid var(--palette-divider);
+  /* box-shadow: ${theme.shadows[1]}; */
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  /* border-radius: ${theme.shape.borderRadius}px; */
+  /* border-radius: 4px; */
+  outline: none;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1.5rem;
+  text-align: left;
+  text-overflow: ellipsis;
+  line-height: 36px;
+  -webkit-appearance: none;
+}
+
+.input::-webkit-search-decoration,
+.input::-webkit-search-cancel-button,
+.input::-webkit-search-results-button,
+.input::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+
+.input:not([readonly]):focus {
+  cursor: initial;
+}
+
+/**
+ * Options wrapper
+ */
+.select {
+  /* box-shadow: ${theme.shadows[1]}; */
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  border: 1px solid var(--palette-divider);
+  background-color: var(--palette-background-paper);
+}
+
+/**
+ * Options
+ */
+.options {
+  list-style: none;
+}
+
+/**
+ * Option row
+ */
+.row:not(:first-child) {
+  border-top: 1px solid var(--palette-divider);
+}
+
+/**
+ * Option
+ */
+.option {
+  display: block;
+  height: 36px;
+  width: 100%;
+  padding: 0 16px;
+  color: var(--palette-text-primary);
+  background-color: var(--palette-background-paper);
+  border: none;
+  outline: none;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  /* transition: background-color ${theme.transitions.duration.shortest}ms ${theme.transitions.easing.easeInOut}; */
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container--multiple .option {
+  height: 48px;
+}
+
+.option.is-selected {
+  background-color: var(--palette-action-selected);
+}
+
+.option.is-highlighted,
+.option:not(.is-selected):hover {
+  background-color: var(--palette-action-hover);
+}
+
+/**
+ * Group
+ */
+/* MEMO: not used for now */
+.group-header {
+  font-size: 1rem;
+  text-transform: uppercase;
+  background: #eee;
+  padding: 8px 16px;
+}
+
+/**
+ * States
+ */
+.container.is-disabled {
+  opacity: 0.5;
+}
+
+.container.is-loading .value::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cpath fill='%232F2D37' d='M25,5A20.14,20.14,0,0,1,45,22.88a2.51,2.51,0,0,0,2.49,2.26h0A2.52,2.52,0,0,0,50,22.33a25.14,25.14,0,0,0-50,0,2.52,2.52,0,0,0,2.5,2.81h0A2.51,2.51,0,0,0,5,22.88,20.14,20.14,0,0,1,25,5Z'%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 25 25' to='360 25 25' dur='0.6s' repeatCount='indefinite'/%3E%3C/path%3E%3C/svg%3E");
+  background-size: 11px;
+}
+
+.container:not(.is-disabled) .input {
+  cursor: pointer;
+}
+
+/**
+ * Modifiers
+ */
+.container--multiple {
+  /* border-radius: ${theme.shape.borderRadius}px; */
+  /* border-radius: 4px; */
+  overflow: hidden;
+}
+
+.container:not(.is-loading):not(.container--multiple) .value::after {
+  transform: rotate(45deg);
+  border-right: 1px solid var(--palette-action-active);
+  border-bottom: 1px solid var(--palette-action-active);
+  pointer-events: none;
+}
+
+.container--multiple .input {
+  cursor: initial;
+}
+
+.container--multiple:not(.container--search) .input {
+  cursor: default;
+}
+
+.container:not(.container--multiple) .select {
+  position: absolute;
+  z-index: 2;
+  top: 44px;
+  right: 0;
+  left: 0;
+  /* border-radius: ${theme.shape.borderRadius}px; */
+  /* border-radius: 4px; */
+  overflow: auto;
+  max-height: 360px;
+}
+
+/* MEMO: not used for now */
+.container--multiple .select {
+  position: relative;
+  overflow: auto;
+  max-height: 260px;
+  border-top: 1px solid #eee;
+  /* border-radius: 0 0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px; */
+  /* border-radius: 0 0 4px 4px; */
+}

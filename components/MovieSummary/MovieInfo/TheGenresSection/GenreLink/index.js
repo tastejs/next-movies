@@ -1,9 +1,25 @@
+/*
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the 'License');
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 import Link from 'next/link';
 import DotCircleIcon from 'public/assets/svgs/icons/dot-circle.svg';
 
-import LINKS from 'utils/constants/links';
 import withTheme from 'utils/hocs/withTheme';
+import LINKS from 'utils/constants/links';
+import QUERY_PARAMS from 'utils/constants/query-params';
 
 const GenreLink = ({
   theme,
@@ -11,8 +27,14 @@ const GenreLink = ({
 }) => (
   <>
     <Link
-      href={LINKS.GENRE.HREF}
-      as={`${LINKS.GENRE.AS_PREFIX}/${genre.name}`}>
+      href={{
+        pathname: LINKS.GENRE.HREF,
+        query: {
+          [QUERY_PARAMS.ID]: genre.id,
+          [QUERY_PARAMS.NAME]: genre.name,
+          [QUERY_PARAMS.PAGE]: 1
+        }
+      }}>
       <a>
         <DotCircleIcon
           fill='currentColor'
@@ -23,16 +45,14 @@ const GenreLink = ({
     </Link>
     <style jsx>{`
       a {
-        text-decoration: none;
         display: flex;
         align-items: center;
         padding: 0.5rem 0rem;
-        color: var(--palette-primary-light);
+        color: var(--palette-secondary-main);
         line-height: 1;
-        font-size: 1.1rem;
-        font-weight: 700;
+        font-size: 1.25rem;
+        font-weight: ${theme.typography.fontWeightBold};
         text-transform: uppercase;
-        transition: transform ${theme.transitions.duration.standard}ms ${theme.transitions.easing.easeInOut};
       }
     
       a:not(:last-child) {
@@ -40,7 +60,7 @@ const GenreLink = ({
       }
     
       a:hover {
-        transform: translateY(-3px);
+        text-decoration: underline;
       }
     
       a:active {
