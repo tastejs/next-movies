@@ -30,7 +30,7 @@ import tmdbAPI from 'services/tmdbAPI';
  * Should handle errors: https://github.com/axios/axios/issues/960 & https://github.com/axios/axios#handling-errors.
  * Should integrate a notification system to notify errors from the service.
  * Should explore a better approach rather than refetch approach.
- * Should handle error state and show proper error message based on error state. RE: https://github.com/addyosmani/launch/issues/14#issuecomment-723718803
+ * Should handle error state and show proper error message based on error state. 
  * Should make disable the items that have been already added.
  * Could handle `comments` feature.
  */

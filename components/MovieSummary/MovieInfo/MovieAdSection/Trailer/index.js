@@ -20,7 +20,6 @@ const Trailer = ({ videos }) => {
     return null;
   }
 
-  // TODO: double check the strategy with Addy
   const { key: videoId } = videos.find(video => video.type === 'Trailer' && video.site === 'YouTube') || {};
 
   return (

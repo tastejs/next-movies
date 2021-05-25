@@ -17,13 +17,6 @@ import QUERY_PARAMS from 'utils/constants/query-params';
 import STATUSES from 'utils/constants/statuses';
 import tmdbAPI from 'services/tmdbAPI';
 
-// TODO: <
-/**
- * TODO:
- * Should handle error state and show proper error message based on error state. RE: https://github.com/addyosmani/launch/issues/14#issuecomment-723718803
- */
-// TODO: >
-
 const MyLists = ({
   accountId,
   accessToken

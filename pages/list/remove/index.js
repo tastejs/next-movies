@@ -22,14 +22,6 @@ import LINKS from 'utils/constants/links';
 import STATUSES from 'utils/constants/statuses';
 import tmdbAPI from 'services/tmdbAPI';
 
-// TODO: <
-/**
- * TODO:
- * Should integrate authorization i.e. if this belongs to me.
- * Should handle error state and show proper error message based on error state. RE: https://github.com/addyosmani/launch/issues/14#issuecomment-723718803
- */
-// TODO: >
-
 const Remove = ({
   accountId,
   accessToken

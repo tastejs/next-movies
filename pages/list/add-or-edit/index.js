@@ -29,7 +29,7 @@ import tmdbAPI from 'services/tmdbAPI';
  * TODO:
  * Should integrate authorization i.e. if this belongs to me.
  * Should handle `Invalid description` bug.
- * Should handle error state and show proper error message based on error state. RE: https://github.com/addyosmani/launch/issues/14#issuecomment-723718803
+ * Should handle error state and show proper error message based on error state.
  * Could handle `sort_by` feature.
  */
 // TODO: >

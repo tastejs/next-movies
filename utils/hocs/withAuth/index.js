@@ -6,7 +6,7 @@ import { useAuth } from 'utils/hocs/AuthProvider';
 // TODO: <
 /**
  * TODO:
- * Should handle error state and show proper error message based on error state. RE: https://github.com/addyosmani/launch/issues/14#issuecomment-723718803
+ * Should handle error state and show proper error message based on error state. 
  */
 // TODO: >
 

@@ -5,7 +5,6 @@ import Logo from 'components/Logo';
 import SectionHeading from './SectionHeading';
 import MenuItem from './MenuItem';
 import MenuItemLink from './MenuItemLink';
-import Copyright from 'components/Copyright';
 import TMDBMark from 'components/TMDBMark';
 import LINKS from 'utils/constants/links';
 import QUERY_PARAMS from 'utils/constants/query-params';
@@ -68,10 +67,6 @@ const Menu = ({
         {renderStaticCategories(staticCategories, selectedMenuItemName, closeMenu)}
         <SectionHeading>Genres</SectionHeading>
         {renderGenres(genres, selectedMenuItemName, closeMenu)}
-        <Copyright
-          className='copyright'
-          href='https://www.github.com/addyosmani'
-          text='Copyright © Addy Osmani' />
         <TMDBMark className='tmdb-mark' />
       </nav>
       <style jsx>{`
