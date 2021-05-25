@@ -1,18 +1,3 @@
-/*
- * Copyright 2020 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the 'License');
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an 'AS IS' BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 import {
   useState,
@@ -26,13 +11,6 @@ import { loadState, saveState } from 'utils/helpers/localStorage';
 import STATUSES from 'utils/constants/statuses';
 import tmdbAPI from 'services/tmdbAPI';
 
-// TODO: <
-/**
- * TODO:
- * Should handle https://trello.com/c/Q1ceDQ8e/18-deleting-a-v4-access-token-does-not-work.
- * Should alter the default headers of our fetch library (in our case, axios) to include the auth token in all requests.
- */
-// TODO: >
 
 const AuthProvider = ({ children }) => {
   const [state, setState] = useState({

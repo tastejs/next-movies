@@ -1,18 +1,3 @@
-/*
- * Copyright 2020 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the 'License');
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an 'AS IS' BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
@@ -31,19 +16,6 @@ import { TMDB_API_NEW_VERSION, TMDB_IMAGE_BASE_URL } from 'config/tmdb';
 import QUERY_PARAMS from 'utils/constants/query-params';
 import STATUSES from 'utils/constants/statuses';
 import tmdbAPI from 'services/tmdbAPI';
-
-// TODO: <
-/**
- * TODO:
- * Should integrate authorization i.e. `public` | `private` list.
- * Should show the author's gravatar next to ListActions.
- * Should add Google license text to every new file.
- * Should handle error state and show proper error message based on error state. RE: https://github.com/addyosmani/launch/issues/14#issuecomment-723718803
- * Could show a hero image using the `backdrop_path` value.
- * Could handle `sort_by` feature.
- * Could handle `comments` feature.
- */
-// TODO: >
 
 const List = () => {
   const { query } = useRouter();
