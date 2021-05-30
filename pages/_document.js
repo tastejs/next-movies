@@ -54,7 +54,6 @@ class MyDocument extends Document {
             href='/assets/css/light.css'
             media='(prefers-color-scheme: light)' /> */}
 
-          {/* TODO: < */}
           {/* Primary Meta Tags */}
           <meta name='title' content='' />
           <meta name='description' content='' />
@@ -74,7 +73,6 @@ class MyDocument extends Document {
           <meta property='twitter:title' content='Next.js Movies' />
           <meta property='twitter:description' content='The Movies App is a non-trivial demo application built on top of the TMDB (The Movie Database) API' />
           <meta property='twitter:image' content='https://movies.zaps.dev/movies-meta-image.jpg' />
-          {/* TODO: > */}
 
           <style
             type='text/css'

@@ -24,7 +24,6 @@ import LINKS from 'utils/constants/links';
 import STATUSES from 'utils/constants/statuses';
 import tmdbAPI from 'services/tmdbAPI';
 
-// TODO: <
 /**
  * TODO:
  * Should integrate authorization i.e. if this belongs to me.
@@ -32,7 +31,6 @@ import tmdbAPI from 'services/tmdbAPI';
  * Should handle error state and show proper error message based on error state.
  * Could handle `sort_by` feature.
  */
-// TODO: >
 
 const AddOrEdit = ({
   accountId,

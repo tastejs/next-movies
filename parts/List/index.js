@@ -1,11 +1,9 @@
 
-// TODO: <
 /**
  * TODO:
  * Number UI is fragile on small width screen.
  * Could apply ellipsis to movie titles to avoid breaking number element.
  */
-// TODO: >
 
 const ListItem = ({
   children,
