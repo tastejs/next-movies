@@ -22,6 +22,13 @@ Clone and install the dependencies for `next-movies` locally:
   cd next-movies 
   npm install
 ```
+
+## Quick setup
+
+1. Take a copy of .env.local.example and re-name to .env.local
+2. Get your TMDb API key
+3. Get your TMDB API read access token
+4. Enter the details into the .env.local file
     
 ## Running locally
 
@@ -47,6 +54,8 @@ Built with:
 * react-select-search
 * redaxios
 * use-dark-mode
+* @artsy/fresnel
+* @loadable/component
   
 ## Authors
 
