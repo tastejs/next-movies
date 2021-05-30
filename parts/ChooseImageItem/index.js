@@ -9,12 +9,10 @@ import {
   // W710_AND_H400_BESTV2
 } from 'config/image-sizes';
 
-// TODO: <
 /**
  * TODO:
  * Should use srcset approach to serve responsive images. Re: https://web.dev/serve-responsive-images/
  */
-// TODO: >
 
 const SCENERY_CONTAINER_CLASS_NAME = 'scenery-container';
 const GRAY_FILTERED_CLASS_NAME = 'gray-filtered';

@@ -9,14 +9,12 @@
 //   }
 // );
 
-// TODO: <
 /**
  * TODO:
  * Should have API abortion logic when components being unmounted to avoid memory leak.
  * Should use finite states model instead of boolean loading state (at /index, /genre, /movie, /person, and /search pages).
  * Should double-check if `react-scroll` is working as expected and fix.
  */
-// TODO: >
 
 import { useEffect } from 'react';
 import Head from 'next/head';

@@ -3,12 +3,10 @@
 import NotFound from 'parts/NotFound';
 import { useAuth } from 'utils/hocs/AuthProvider';
 
-// TODO: <
 /**
  * TODO:
  * Should handle error state and show proper error message based on error state. 
  */
-// TODO: >
 
 const withAuth = WrappedComponent => {
   return React.forwardRef(function AuthComponent(props, ref) {

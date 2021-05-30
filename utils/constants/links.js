@@ -1,12 +1,10 @@
 
 
-// TODO: <
 /**
  * TODO:
  * AS_PREFIX can be removed.
  * PATHNAME instead of HREF could sound better.
  */
-// TODO: >
 
 const LINKS = Object.freeze({
   HOME: {

@@ -22,7 +22,6 @@ import { TMDB_MEDIA_TYPES } from 'utils/constants/tmdb';
 import STATUSES from 'utils/constants/statuses';
 import tmdbAPI from 'services/tmdbAPI';
 
-// TODO: <
 /**
  * TODO:
  * Should integrate authorization i.e. if this belongs to me.
@@ -34,7 +33,6 @@ import tmdbAPI from 'services/tmdbAPI';
  * Should make disable the items that have been already added.
  * Could handle `comments` feature.
  */
-// TODO: >
 
 const AddOrRemoveItems = ({
   accountId,

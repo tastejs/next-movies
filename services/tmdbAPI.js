@@ -7,14 +7,12 @@ import {
   TMDB_API_READ_ACCESS_TOKEN
 } from 'config/tmdb';
 
-// TODO: <
 /**
  * TODO:
  * RE: https://developers.themoviedb.org/4/getting-started
  * Do however, encourage you to use the new `Authorization` header for all requests since it's a system you have to use for all application and user requests besides `GET` regardless.
  * Could encounter such an issue as https://google-chrome.atlassian.net/browse/GOOGLE-89?focusedCommentId=10979.
  */
-// TODO: >
 
 const tmdbAPI = axios.create({
   baseURL: TMDB_API_BASE_URL,

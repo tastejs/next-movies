@@ -10,12 +10,10 @@ import LINKS from 'utils/constants/links';
 import QUERY_PARAMS from 'utils/constants/query-params';
 import COLOR_TYPES from 'utils/constants/color-types';
 
-// TODO: <
 /**
  * TODO:
  * Should use the avatar.
  */
-// TODO: >
 
 const TheUser = ({
   className,
