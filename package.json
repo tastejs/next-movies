@@ -17,7 +17,7 @@
     "@artsy/fresnel": "^1.2.0",
     "@loadable/component": "^5.13.1",
     "clsx": "^1.1.1",
-    "next": "9.5.1",
+    "next": "9.5.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-glider": "^2.0.1",
@@ -32,7 +32,7 @@
     "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^9.5.1",
+    "@next/bundle-analyzer": "^9.5.3",
     "@svgr/webpack": "^5.4.0",
     "@zeit/next-source-maps": "0.0.3",
     "babel-eslint": "^10.1.0",
