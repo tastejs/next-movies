@@ -46,7 +46,7 @@ const Movie = () => {
       const newPage = 1;
       console.log('[Movie useEffect] query parameter update: newMovieId, newPage => ', newMovieId, newPage);
       Router.replace({
-        pathname: LINKS.MOVIE.HREF,
+        pathname: LINKS.MOVIE.PATHNAME,
         query: {
           [QUERY_PARAMS.ID]: newMovieId,
           [QUERY_PARAMS.PAGE]: newPage
@@ -59,7 +59,7 @@ const Movie = () => {
     if (!movieId) return;
 
     scroll.scrollToTop({smooth: true, delay: 500});
-    
+
     dispatch(getMovie(movieId));
   }, [movieId, dispatch]);
 

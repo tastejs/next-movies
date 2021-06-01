@@ -24,7 +24,7 @@ const getSearchMovies = (query, page) => async dispatch => {
   } catch (error) {
     console.log('[getSearchMovies] error => ', error);
     dispatch({type: TYPES.INSERT_ERROR, payload: error.response});
-    Router.push(LINKS.ERROR.HREF);
+    Router.push(LINKS.ERROR.PATHNAME);
   }
 };
 

@@ -47,7 +47,7 @@ const AddOrEdit = ({
 
   useEffect(() => {
     // MEMO: check if there is no query parameter (list ID) which means ADD case
-    if (Router.router.asPath === LINKS.ADD_OR_EDIT_LIST.HREF) {
+    if (Router.router.asPath === LINKS.ADD_OR_EDIT_LIST.PATHNAME) {
       setEditStatus(STATUSES.RESOLVED);
     }
   }, []);

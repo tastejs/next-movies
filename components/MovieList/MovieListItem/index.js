@@ -27,7 +27,7 @@ const MovieListItem = ({
       <PosterLink
         className={POSTER_LINK_CLASS_NAME}
         href={{
-          pathname: LINKS.MOVIE.HREF,
+          pathname: LINKS.MOVIE.PATHNAME,
           query: {
             [QUERY_PARAMS.ID]: movie.id,
             [QUERY_PARAMS.PAGE]: 1

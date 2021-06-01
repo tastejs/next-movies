@@ -44,7 +44,7 @@ const Home = () => {
 
   const categoryName = query[QUERY_PARAMS.CATEGORY];
   const page = Number(query[QUERY_PARAMS.PAGE]);
-  
+
   useEffect(() => {
     return () => {
       dispatch(setSelectedMenuItemName());
@@ -54,7 +54,7 @@ const Home = () => {
 
   useEffect(() => {
     // MEMO: check if query parsing has finished
-    if (Router.router.asPath !== LINKS.HOME.HREF && checkEmptyObject(query)) return;
+    if (Router.router.asPath !== LINKS.HOME.PATHNAME && checkEmptyObject(query)) return;
 
     const initialCategoryName = Router.query[QUERY_PARAMS.CATEGORY];
     const initialPage = Router.query[QUERY_PARAMS.PAGE];
@@ -99,7 +99,7 @@ const Home = () => {
       if (!categoryName || !page) return;
 
       scroll.scrollToTop({smooth: true});
-      
+
       await dispatch(setSelectedMenuItemName(categoryName));
       dispatch(getStaticCategoryMovies(categoryName, page));
     })();

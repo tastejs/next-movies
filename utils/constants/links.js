@@ -1,50 +1,42 @@
-
-
-/**
- * TODO:
- * AS_PREFIX can be removed.
- * PATHNAME instead of HREF could sound better.
- */
-
 const LINKS = Object.freeze({
   HOME: {
-    HREF: '/',
+    PATHNAME: '/',
   },
   GENRE: {
-    HREF: '/genre',
+    PATHNAME: '/genre',
   },
   MOVIE: {
-    HREF: '/movie',
+    PATHNAME: '/movie',
   },
   PERSON: {
-    HREF: '/person',
+    PATHNAME: '/person',
   },
   SEARCH: {
-    HREF: '/search',
+    PATHNAME: '/search',
   },
   LIST: {
-    HREF: '/list',
+    PATHNAME: '/list',
   },
   ADD_OR_EDIT_LIST: {
-    HREF: '/list/add-or-edit',
+    PATHNAME: '/list/add-or-edit',
   },
   REMOVE_LIST: {
-    HREF: '/list/remove',
+    PATHNAME: '/list/remove',
   },
   ADD_OR_REMOVE_ITEMS_AT_LIST: {
-    HREF: '/list/add-or-remove-items',
+    PATHNAME: '/list/add-or-remove-items',
   },
   CHOOSE_LIST_IMAGE: {
-    HREF: '/list/choose-image',
+    PATHNAME: '/list/choose-image',
   },
   MY_LISTS: {
-    HREF: '/my-lists',
+    PATHNAME: '/my-lists',
   },
   NOT_FOUND: {
-    HREF: '/404',
+    PATHNAME: '/404',
   },
   ERROR: {
-    HREF: '/error',
+    PATHNAME: '/error',
   }
 });
 
