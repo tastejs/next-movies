@@ -20,7 +20,7 @@ const PersonLink = ({
         }
       }}>
       <a>
-        <Profile src={`${baseUrl}w${W185H278.WIDTH}${person.profile_path}`} />
+        <Profile src={`${baseUrl}w${W185H278.WIDTH}${person.profile_path}`} alt={person.name} />
       </a>
     </Link>
     <style jsx>{`

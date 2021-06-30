@@ -7,25 +7,28 @@ import { PROFILE_PLACEHOLDER_IMAGE_PATH } from 'utils/constants/image-paths';
 const PROFILE_WIDTH = 44;
 const PROFILE_HEIGHT = 44;
 
-const Profile = props => (
+const Profile = ({ src, alt }) => (
   <>
     <Image
-      {...props}
+      src={src}
+      alt={alt}
       width={`${PROFILE_WIDTH}px`}
       height={`${PROFILE_HEIGHT}px`}
-      className='center-profile profile-border-radius'
+      className="center-profile profile-border-radius"
       loadingUI={
         // MEMO: reserve space for preventing layout shifting
         <div
           style={{
             width: `${PROFILE_WIDTH}px`,
-            height: `${PROFILE_HEIGHT}px`
+            height: `${PROFILE_HEIGHT}px`,
           }}
-          className='loading-ui center-profile'>
+          className="loading-ui center-profile"
+        >
           <LoadingSpinner />
         </div>
       }
-      placeholderPath={PROFILE_PLACEHOLDER_IMAGE_PATH} />
+      placeholderPath={PROFILE_PLACEHOLDER_IMAGE_PATH}
+    />
     <style jsx>{`
       .loading-ui {
         display: flex;
