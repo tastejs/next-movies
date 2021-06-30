@@ -11,6 +11,7 @@ const Image = ({
   placeholderPath,
   gradientOverlayEnabled,
   overlayClass,
+  alt,
   ...rest
 }) => {
   const [loaded, setLoaded] = useState(false);
@@ -43,6 +44,7 @@ const Image = ({
             ...style,
             display: loaded ? 'block' : 'none'
           }}
+          alt={alt ?? ''}
           {...rest} />
       </GradientImageWrapper>
       <style jsx>{`

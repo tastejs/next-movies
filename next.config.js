@@ -4,21 +4,20 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const withSourceMaps = require('@zeit/next-source-maps');
+const webpack = require('webpack');
 
 module.exports = withBundleAnalyzer(withSourceMaps({
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    if (dev) {
-      config.module.rules.push({
-        test: /\.(j|t)sx?$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader'
-      });
-    }
-
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack']
     });
+
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        React: "react",
+      })
+    );
 
     return config;
   }
