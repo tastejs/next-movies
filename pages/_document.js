@@ -55,8 +55,8 @@ class MyDocument extends Document {
             media='(prefers-color-scheme: light)' /> */}
 
           {/* Primary Meta Tags */}
-          <meta name='title' content='' />
-          <meta name='description' content='' />
+          <meta name='title' content='Next.js Movies' />
+          <meta name='description' content='The Movies App is a non-trivial demo application built on top of the TMDB (The Movie Database) API' />
 
           {/* Open Graph / Facebook */}
           <meta property='og:type' content='website' />
