@@ -1,17 +1,7 @@
-
-// TODO: https://nextjs.org/blog/next-9#automatic-partial-static-export
-// RE: https://github.com/vercel/next.js/discussions/10874
-// import { wrapper } from 'store';
-// import init from 'actions/init';
-// export const getServerSideProps = wrapper.getServerSideProps(
-//   async ({ store }) => {
-//     store.dispatch(init());
-//   }
-// );
-
 /**
  * TODO:
- * Should have API abortion logic when components being unmounted to avoid memory leak.
+ * https://nextjs.org/blog/next-9#automatic-partial-static-export RE: https://github.com/vercel/next.js/discussions/10874
+ * Should have API abort logic when components being unmounted to avoid memory leak.
  * Should use finite states model instead of boolean loading state (at /index, /genre, /movie, /person, and /search pages).
  * Should double-check if `react-scroll` is working as expected and fix.
  */
