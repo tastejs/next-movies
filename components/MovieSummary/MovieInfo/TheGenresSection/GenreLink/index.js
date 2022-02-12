@@ -13,7 +13,7 @@ const GenreLink = ({
   <>
     <Link
       href={{
-        pathname: LINKS.GENRE.HREF,
+        pathname: LINKS.GENRE.PATHNAME,
         query: {
           [QUERY_PARAMS.ID]: genre.id,
           [QUERY_PARAMS.NAME]: genre.name,
@@ -39,15 +39,15 @@ const GenreLink = ({
         font-weight: ${theme.typography.fontWeightBold};
         text-transform: uppercase;
       }
-    
+
       a:not(:last-child) {
         margin-right: 2rem;
       }
-    
+
       a:hover {
         text-decoration: underline;
       }
-    
+
       a:active {
         transform: translateY(2px);
       }

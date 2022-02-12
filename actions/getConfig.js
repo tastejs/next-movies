@@ -15,7 +15,7 @@ const getConfig = () => async dispatch => {
   } catch (error) {
     console.log('[getConfig] error => ', error);
     dispatch({type: TYPES.INSERT_ERROR, payload: error.response});
-    Router.push(LINKS.ERROR.HREF);
+    Router.push(LINKS.ERROR.PATHNAME);
   }
 };
 

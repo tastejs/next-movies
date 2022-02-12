@@ -50,7 +50,7 @@ const Genre = () => {
       const newPage = 1;
       console.log('[Genre useEffect] query parameter update: newGenreId, newGenreName, newPage => ', newGenreId, newGenreName, newPage);
       Router.replace({
-        pathname: LINKS.GENRE.HREF,
+        pathname: LINKS.GENRE.PATHNAME,
         query: {
           [QUERY_PARAMS.ID]: newGenreId,
           [QUERY_PARAMS.NAME]: newGenreName,
@@ -63,7 +63,7 @@ const Genre = () => {
   useEffect(() => {
     (async () => {
       if (!genreId || !genreName || !page || !sortByOptionValue) return;
-      
+
       scroll.scrollToTop({smooth: true});
 
       await dispatch(setSelectedMenuItemName(genreName));

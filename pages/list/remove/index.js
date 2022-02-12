@@ -78,7 +78,7 @@ const Remove = ({
       const headers = {
         'Authorization': `Bearer ${accessToken}`
       };
-      
+
       setRemoveStatus(STATUSES.PENDING);
 
       await tmdbAPI.delete(`/${TMDB_API_NEW_VERSION}/list/${listId}`, {headers});
@@ -86,7 +86,7 @@ const Remove = ({
       setRemoveStatus(STATUSES.RESOLVED);
 
       Router.push({
-        pathname: LINKS.MY_LISTS.HREF,
+        pathname: LINKS.MY_LISTS.PATHNAME,
         query: {
           [QUERY_PARAMS.PAGE]: 1
         }
@@ -101,7 +101,7 @@ const Remove = ({
   if (status === STATUSES.IDLE || status === STATUSES.PENDING) {
     return <Loader />;
   }
-  
+
   if (status === STATUSES.REJECTED) {
     // TODO: should show proper error message based on error state
     return (

@@ -40,14 +40,14 @@ const TheUser = ({
           )}>
           <DropdownMenuItem>
             <Link href={{
-              pathname: LINKS.ADD_OR_EDIT_LIST.HREF
+              pathname: LINKS.ADD_OR_EDIT_LIST.PATHNAME
             }}>
               <a>Create New List</a>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Link href={{
-              pathname: LINKS.MY_LISTS.HREF,
+              pathname: LINKS.MY_LISTS.PATHNAME,
               query: {
                 [QUERY_PARAMS.PAGE]: 1
               }

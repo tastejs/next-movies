@@ -27,7 +27,7 @@ const MyTMDBList = ({
       <PosterLink
         className={POSTER_LINK_CLASS_NAME}
         href={{
-          pathname: LINKS.LIST.HREF,
+          pathname: LINKS.LIST.PATHNAME,
           query: {
             [QUERY_PARAMS.ID]: myList.id,
             [QUERY_PARAMS.PAGE]: 1

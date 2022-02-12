@@ -26,7 +26,7 @@ const NotFound = ({
         alt='Not found!' />
       <LinkButton
         href={{
-          pathname: LINKS.HOME.HREF,
+          pathname: LINKS.HOME.PATHNAME,
           query: {
             [QUERY_PARAMS.CATEGORY]: STATIC_MOVIE_CATEGORIES[0].name,
             [QUERY_PARAMS.PAGE]: 1

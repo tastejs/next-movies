@@ -13,7 +13,7 @@ const PersonLink = ({
   <>
     <Link
       href={{
-        pathname: LINKS.PERSON.HREF,
+        pathname: LINKS.PERSON.PATHNAME,
         query: {
           [QUERY_PARAMS.ID]: person.id,
           [QUERY_PARAMS.PAGE]: 1

@@ -14,7 +14,7 @@ const renderStaticCategories = (staticCategories, selectedMenuItemName, closeMen
     <MenuItemLink
       key={staticCategory.id}
       href={{
-        pathname: LINKS.HOME.HREF,
+        pathname: LINKS.HOME.PATHNAME,
         query: {
           [QUERY_PARAMS.CATEGORY]: staticCategory.name,
           [QUERY_PARAMS.PAGE]: 1
@@ -34,7 +34,7 @@ const renderGenres = (genres, selectedMenuItemName, closeMenu = null) => {
     <MenuItemLink
       key={genre.id}
       href={{
-        pathname: LINKS.GENRE.HREF,
+        pathname: LINKS.GENRE.PATHNAME,
         query: {
           [QUERY_PARAMS.ID]: genre.id,
           [QUERY_PARAMS.NAME]: genre.name,
