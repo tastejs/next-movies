@@ -4,6 +4,7 @@ import * as TYPES from './types';
 import tmdbAPI from 'services/tmdbAPI';
 import LINKS from 'utils/constants/links';
 import { TMDB_API_VERSION } from 'config/tmdb';
+import { SORT_BY_OPTIONS } from 'utils/constants/select-search';
 
 const getGenreMovies = (genreId, page, sort) => async (
   dispatch,
@@ -15,11 +16,13 @@ const getGenreMovies = (genreId, page, sort) => async (
   }
   try {
     dispatch({type: TYPES.SET_MOVIES_LOADING});
+    const { vote_count } = SORT_BY_OPTIONS.find((s) => s.value === sort);
     const response = await tmdbAPI.get(`/${TMDB_API_VERSION}/discover/movie`, {
       params: {
         with_genres: genreId,
         page,
-        sort_by: sort
+        sort_by: sort,
+        "vote_count.gte":vote_count && vote_count.gte || 0,
       }
     });
     await dispatch({
