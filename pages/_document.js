@@ -84,7 +84,7 @@ class MyDocument extends Document {
                 addEventListener('error', window.__e=function f(e){f.q=f.q||[];f.q.push(e)});
               `
             }} />
-          <script async src="https://www.google-analytics.com/analytics.js"></script>
+          {/* <script async src="https://www.google-analytics.com/analytics.js"></script> */}
         </Head>
         <body className={CLASS_NAMES.LIGHT}>
           {/* MEMO: inspired by https://github.com/donavon/use-dark-mode#that-flash */}
