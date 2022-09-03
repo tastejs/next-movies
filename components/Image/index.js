@@ -11,6 +11,7 @@ const Image = ({
   placeholderPath,
   gradientOverlayEnabled,
   overlayClass,
+  fetchpriority,
   alt,
   ...rest
 }) => {
@@ -34,6 +35,7 @@ const Image = ({
         <img
           className={clsx('img', className)}
           onLoad={onImageLoadHandler}
+          fetchpriority={fetchpriority}
           onError={event => {
             setError(true);
             if (event.target.src !== placeholderPath) {

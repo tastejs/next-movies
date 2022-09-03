@@ -15,6 +15,7 @@ const Scenery = ({
   className = '',
   width,
   height,
+  fetchpriority,
   ...rest
 }) => (
   <AspectRatioBox
@@ -23,6 +24,7 @@ const Scenery = ({
     <Image
       width={width}
       height={height}
+      fetchpriority={fetchpriority}
       gradientOverlayEnabled
       overlayClass={overlayClass}
       className={clsx(CLASS_NAME, className)}

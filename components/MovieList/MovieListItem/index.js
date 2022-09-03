@@ -18,7 +18,8 @@ const RATING_INFO_CLASS_NAME = 'rating-info-color';
 const MovieListItem = ({
   theme,
   movie,
-  baseUrl
+  baseUrl,
+  fetchpriority
 }) => (
   <>
     <LazyLoad
@@ -36,6 +37,7 @@ const MovieListItem = ({
         <Scenery
           width={W342H513.WIDTH}
           height={W342H513.HEIGHT}
+          fetchpriority={fetchpriority}
           src={`${baseUrl}w${W342H513.WIDTH}${movie.poster_path}`} />
         <DetailsPanelWrapper theme={theme}>
           <PosterTitle
