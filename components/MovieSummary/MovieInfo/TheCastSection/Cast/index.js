@@ -1,7 +1,8 @@
 
 
 import { useState, useRef, useEffect } from 'react';
-import Glider from 'react-glider';
+import dynamic from 'next/dynamic';
+const Glider = dynamic(() => import('react-glider'));
 
 import PersonLink from './PersonLink';
 
