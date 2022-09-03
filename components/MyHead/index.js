@@ -7,7 +7,7 @@ const MyHead = ({ children }) => (
   <Head>
     <link rel='preconnect' href='https://image.tmdb.org' />
     <link rel='preconnect' href='https://api.themoviedb.org' />
-    <link rel='preconnect' href='https://www.google-analytics.com' />
+    {/* <link rel='preconnect' href='https://www.google-analytics.com' /> */}
     <link rel='preconnect' href='https://content-autofill.googleapis.com' />
     <link rel='preload' href={LOGO_IMAGE_PATH} as='image' media='(min-width: 80em)' />
     <link rel='preload' href={DARK_TMDB_IMAGE_PATH} as='image' media='(prefers-color-scheme: dark) and (min-width: 80em)' />

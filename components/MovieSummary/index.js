@@ -2,8 +2,9 @@
 
 import SummaryWrapper from 'parts/SummaryWrapper';
 import MovieArtwork from './MovieArtwork';
-import MovieInfo from './MovieInfo';
 import { W780H1170 } from 'config/image-sizes';
+import dynamic from 'next/dynamic';
+const MovieInfo = dynamic(() => import('./MovieInfo'));
 
 const MovieSummary = ({
   baseUrl,
