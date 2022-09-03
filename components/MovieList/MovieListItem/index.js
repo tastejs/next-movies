@@ -23,7 +23,7 @@ const MovieListItem = ({
   <>
     <LazyLoad
       height={200}
-      offset={500}>
+      offset={700}>
       <PosterLink
         className={POSTER_LINK_CLASS_NAME}
         href={{
