@@ -42,13 +42,13 @@ const Search = () => {
 
     const initialSearchTerm = Router.query[QUERY_PARAMS.SEARCH_TERM];
     const initialPage = Router.query[QUERY_PARAMS.PAGE];
- 
+
     if (!initialPage) {
       const newPage = 1;
       const newSearchTerm = initialSearchTerm;
       console.log('[Search useEffect] query parameter update: newSearchTerm, newPage => ', newSearchTerm, newPage);
       Router.replace({
-        pathname: LINKS.SEARCH.HREF,
+        pathname: LINKS.SEARCH.PATHNAME,
         query: {
           [QUERY_PARAMS.SEARCH_TERM]: newSearchTerm,
           [QUERY_PARAMS.PAGE]: newPage
@@ -56,7 +56,7 @@ const Search = () => {
       });
     }
   }, [dispatch, query]);
-  
+
   useEffect(() => {
     if (!searchTerm || !page) return;
 

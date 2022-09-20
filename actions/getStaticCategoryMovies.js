@@ -30,7 +30,7 @@ const getStaticCategoryMovies = (name, page) => async (dispatch, getState) => {
   } catch (error) {
     console.log('[getStaticCategoryMovies] error => ', error);
     dispatch({type: TYPES.INSERT_ERROR, payload: error.response});
-    Router.push(LINKS.ERROR.HREF);
+    Router.push(LINKS.ERROR.PATHNAME);
   }
 };
 

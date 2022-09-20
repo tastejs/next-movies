@@ -33,7 +33,7 @@ const ListActions = ({
     {
       title: 'Edit',
       href: {
-        pathname: LINKS.ADD_OR_EDIT_LIST.HREF,
+        pathname: LINKS.ADD_OR_EDIT_LIST.PATHNAME,
         query: {[QUERY_PARAMS.ID]: listId}
       },
       invisible: creatorAccountId !== accountId
@@ -46,7 +46,7 @@ const ListActions = ({
     {
       title: 'Add/Remove Items',
       href: {
-        pathname: LINKS.ADD_OR_REMOVE_ITEMS_AT_LIST.HREF,
+        pathname: LINKS.ADD_OR_REMOVE_ITEMS_AT_LIST.PATHNAME,
         query: {
           [QUERY_PARAMS.LIST_ID]: listId,
           [QUERY_PARAMS.PAGE]: 1
@@ -57,7 +57,7 @@ const ListActions = ({
     {
       title: 'Create New List',
       href: {
-        pathname: LINKS.ADD_OR_EDIT_LIST.HREF
+        pathname: LINKS.ADD_OR_EDIT_LIST.PATHNAME
       },
       invisible: false
     }
@@ -101,7 +101,7 @@ const ListActions = ({
                 </TextButton>
               </a>
             )}
-          </NavbarItem>  
+          </NavbarItem>
         ))}
       </Navbar>
     </>

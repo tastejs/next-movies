@@ -13,7 +13,7 @@ const ListNavigation = ({ listId }) => {
     {
       title: 'Edit List',
       href: {
-        pathname: LINKS.ADD_OR_EDIT_LIST.HREF,
+        pathname: LINKS.ADD_OR_EDIT_LIST.PATHNAME,
         query: {[QUERY_PARAMS.ID]: listId}
       },
       disabled: false
@@ -21,7 +21,7 @@ const ListNavigation = ({ listId }) => {
     {
       title: 'View List',
       href: {
-        pathname: LINKS.LIST.HREF,
+        pathname: LINKS.LIST.PATHNAME,
         query: {
           [QUERY_PARAMS.ID]: listId,
           [QUERY_PARAMS.PAGE]: 1
@@ -32,7 +32,7 @@ const ListNavigation = ({ listId }) => {
     {
       title: 'Add/Remove Items',
       href: {
-        pathname: LINKS.ADD_OR_REMOVE_ITEMS_AT_LIST.HREF,
+        pathname: LINKS.ADD_OR_REMOVE_ITEMS_AT_LIST.PATHNAME,
         query: {
           [QUERY_PARAMS.LIST_ID]: listId,
           [QUERY_PARAMS.PAGE]: 1
@@ -43,7 +43,7 @@ const ListNavigation = ({ listId }) => {
     {
       title: 'Choose Image',
       href: {
-        pathname: LINKS.CHOOSE_LIST_IMAGE.HREF,
+        pathname: LINKS.CHOOSE_LIST_IMAGE.PATHNAME,
         query: {[QUERY_PARAMS.LIST_ID]: listId, [QUERY_PARAMS.PAGE]: 1}
       },
       disabled: false
@@ -51,7 +51,7 @@ const ListNavigation = ({ listId }) => {
     {
       title: 'Delete List',
       href: {
-        pathname: LINKS.REMOVE_LIST.HREF,
+        pathname: LINKS.REMOVE_LIST.PATHNAME,
         query: {[QUERY_PARAMS.ID]: listId}
       },
       disabled: false
@@ -62,21 +62,21 @@ const ListNavigation = ({ listId }) => {
     {
       title: 'Step1: List Details',
       href: {
-        pathname: LINKS.ADD_OR_EDIT_LIST.HREF
+        pathname: LINKS.ADD_OR_EDIT_LIST.PATHNAME
       },
       disabled: false
     },
     {
       title: 'Step2: Add Items',
       href: {
-        pathname: LINKS.ADD_OR_REMOVE_ITEMS_AT_LIST.HREF
+        pathname: LINKS.ADD_OR_REMOVE_ITEMS_AT_LIST.PATHNAME
       },
       disabled: true
     },
     {
       title: 'Step3: Choose Image',
       href: {
-        pathname: LINKS.CHOOSE_LIST_IMAGE.HREF
+        pathname: LINKS.CHOOSE_LIST_IMAGE.PATHNAME
       },
       disabled: true
     }
@@ -95,7 +95,7 @@ const ListNavigation = ({ listId }) => {
             href={listLink.href}>
             <a>{listLink.title}</a>
           </Link>
-        </NavbarItem>  
+        </NavbarItem>
       ))}
     </Navbar>
   );

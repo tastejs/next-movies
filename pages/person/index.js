@@ -48,7 +48,7 @@ const Person = () => {
       const newPage = 1;
       console.log('[Movie useEffect] query parameter update: newPersonId, newPage => ', newPersonId, newPage);
       Router.push({
-        pathname: LINKS.PERSON.HREF,
+        pathname: LINKS.PERSON.PATHNAME,
         query: {
           [QUERY_PARAMS.ID]: newPersonId,
           [QUERY_PARAMS.PAGE]: newPage

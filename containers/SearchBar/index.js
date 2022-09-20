@@ -32,7 +32,7 @@ const SearchBar = ({
     // setSearchTerm('');
     setOpened(false);
     Router.push({
-      pathname: LINKS.SEARCH.HREF,
+      pathname: LINKS.SEARCH.PATHNAME,
       query: {
         [QUERY_PARAMS.SEARCH_TERM]: searchTerm,
         [QUERY_PARAMS.PAGE]: 1
