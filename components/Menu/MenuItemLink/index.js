@@ -1,4 +1,5 @@
 
+import React from "react";
 import Link from 'next/link';
 
 import withTheme from 'utils/hocs/withTheme';
@@ -12,10 +13,7 @@ const MenuItemLink = React.forwardRef(({
   ...rest
 }, ref) => (
   <>
-    <Link
-      href={href}
-      as={as}
-      passHref>
+    <Link href={href} as={as} passHref legacyBehavior>
       <a
         ref={ref}
         {...rest}>

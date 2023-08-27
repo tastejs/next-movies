@@ -16,7 +16,8 @@ const Logo = () => (
           [QUERY_PARAMS.CATEGORY]: STATIC_MOVIE_CATEGORIES[0].name,
           [QUERY_PARAMS.PAGE]: 1
         }
-      }}>
+      }}
+      legacyBehavior>
       <a>
         <picture>
           <source srcSet={LOGO_IMAGE_PATH} media='(min-width: 80em)' />

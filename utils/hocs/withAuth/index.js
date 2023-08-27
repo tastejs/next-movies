@@ -1,5 +1,7 @@
 
 
+import React from "react";
+
 import NotFound from 'parts/NotFound';
 import { useAuth } from 'utils/hocs/AuthProvider';
 

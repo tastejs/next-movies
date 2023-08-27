@@ -1,8 +1,9 @@
+'use client'
 
 
 import { useState, useEffect } from 'react';
 import Router, { useRouter } from 'next/router';
-import Head from 'next/head';
+import { Metadata } from 'next/head';
 import { useDispatch, useSelector } from 'react-redux';
 import { animateScroll as scroll } from 'react-scroll';
 
@@ -85,9 +86,9 @@ const Person = () => {
 
   return (
     <PageWrapper>
-      <Head>
+      <Metadata>
         <title>{`${person.name} - Person Library`}</title>
-      </Head>
+      </Metadata>
       <PersonSummary
         baseUrl={baseUrl}
         person={person} />

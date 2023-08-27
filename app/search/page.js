@@ -1,8 +1,8 @@
+'use client'
 
 
 import { useEffect } from 'react';
-import Head from 'next/head';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { animateScroll as scroll } from 'react-scroll';
 
@@ -79,9 +79,7 @@ const Search = () => {
     return (
       <PageWrapper>
         <PaddingWrapper>
-          <Head>
-            <title>{`${searchTerm} - Search Results`}</title>
-          </Head>
+          <Metadata title={`${searchTerm} - Search Results`} />
           <Header
             title={searchTerm}
             subtitle='search results' />

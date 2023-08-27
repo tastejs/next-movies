@@ -1,3 +1,4 @@
+'use client'
 
 
 import {
@@ -6,7 +7,7 @@ import {
   useCallback
 } from 'react';
 import { useRouter } from 'next/router';
-import Head from 'next/head';
+import { Metadata } from 'next/head';
 import { animateScroll as scroll } from 'react-scroll';
 
 import Header from 'parts/Header';
@@ -23,7 +24,7 @@ import withAuth from 'utils/hocs/withAuth';
 import QUERY_PARAMS from 'utils/constants/query-params';
 import STATUSES from 'utils/constants/statuses';
 import { TMDB_API_NEW_VERSION, TMDB_IMAGE_BASE_URL } from 'config/tmdb';
-import tmdbAPI from 'services/tmdbAPI';
+import tmdbAPI from 'services/tmdb';
 
 const BACKDROP_STATUSES = {
   SELECTED: 'SELECTED',
@@ -135,9 +136,9 @@ const ChooseImage = ({
   if (status === STATUSES.RESOLVED) {
     return (
       <>
-        <Head>
+        <Metadata>
           <title>{movies.name}</title>
-        </Head>
+        </Metadata>
         <PageWrapper>
           <PaddingWrapper>
             <Header

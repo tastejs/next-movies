@@ -1,7 +1,7 @@
+'use client'
 
 import { useEffect, useState } from 'react';
-import Head from 'next/head';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { animateScroll as scroll } from 'react-scroll';
 
@@ -84,9 +84,7 @@ const Genre = () => {
   return (
     <PageWrapper>
       <PaddingWrapper>
-        <Head>
-          <title>{`${general.selectedMenuItemName} Movies`}</title>
-        </Head>
+        <Metadata title={`${general.selectedMenuItemName} Movies`} />
         <Header
           title={general.selectedMenuItemName}
           subtitle='movies' />

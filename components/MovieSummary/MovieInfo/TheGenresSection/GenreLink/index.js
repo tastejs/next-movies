@@ -19,7 +19,8 @@ const GenreLink = ({
           [QUERY_PARAMS.NAME]: genre.name,
           [QUERY_PARAMS.PAGE]: 1
         }
-      }}>
+      }}
+      legacyBehavior>
       <a>
         <DotCircleIcon
           fill='currentColor'

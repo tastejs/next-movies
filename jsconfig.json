@@ -1,14 +1,5 @@
-
 {
   "compilerOptions": {
-    // This must be specified if "paths" is set
-    "baseUrl": ".",
-    // Relative to "baseUrl"
-    "paths": {
-      "*": [
-        "*",
-        "/*"
-      ]
-    }
+    "baseUrl": "."
   }
 }

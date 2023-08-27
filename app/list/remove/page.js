@@ -1,7 +1,8 @@
+'use client'
 
 import { useState, useEffect } from 'react';
 import Router, { useRouter } from 'next/router';
-import Head from 'next/head';
+import { Metadata } from 'next/head';
 
 import Header from 'parts/Header';
 import NotFound from 'parts/NotFound';
@@ -114,9 +115,9 @@ const Remove = ({
   if (status === STATUSES.RESOLVED) {
     return (
       <>
-        <Head>
+        <Metadata>
           <title>Delete List</title>
-        </Head>
+        </Metadata>
         <PageWrapper>
           <PaddingWrapper>
             <Header

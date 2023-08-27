@@ -1,6 +1,7 @@
+'use client'
+
 
 import { useEffect, useState } from 'react';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { animateScroll as scroll } from 'react-scroll';
 
@@ -8,63 +9,61 @@ import Header from 'parts/Header';
 import NotFound from 'parts/NotFound';
 import PageWrapper from 'parts/PageWrapper';
 import PaddingWrapper from 'parts/PaddingWrapper';
-import ListActions from 'containers/ListActions';
-import MovieList from 'components/MovieList';
+import MyTMDBLists from 'components/MyTMDBLists';
 import Loader from 'components/UI/Loader';
-import { useAuth } from 'utils/hocs/AuthProvider';
+import withAuth from 'utils/hocs/withAuth';
 import { TMDB_API_NEW_VERSION, TMDB_IMAGE_BASE_URL } from 'config/tmdb';
 import QUERY_PARAMS from 'utils/constants/query-params';
 import STATUSES from 'utils/constants/statuses';
 import tmdbAPI from 'services/tmdbAPI';
 
-const List = () => {
+const MyLists = ({
+  accountId,
+  accessToken
+}) => {
   const { query } = useRouter();
-
-  const { accessToken } = useAuth();
 
   const [status, setStatus] = useState(STATUSES.IDLE);
   // TODO: could handle errors
   const [error, setError] = useState(null);
 
-  const [movies, setMovies] = useState(null);
+  const [myLists, setMyLists] = useState(null);
 
   const page = Number(query[QUERY_PARAMS.PAGE]);
-  const listId = query[QUERY_PARAMS.ID];
 
   useEffect(() => {
     (async () => {
       if (!page) return;
-      if (!listId) return;
+      if (!accountId) return;
+      if (!accessToken) return;
 
       scroll.scrollToTop({smooth: true});
 
       try {
         setStatus(STATUSES.PENDING);
-        const headers = accessToken ? {
-          'Authorization': `Bearer ${accessToken}`
-        } : {};
-
-        const response = await tmdbAPI.get(`/${TMDB_API_NEW_VERSION}/list/${listId}`, {
-          headers,
+        const response = await tmdbAPI.get(`/${TMDB_API_NEW_VERSION}/account/${accountId}/lists`, {
+          headers: {
+            'Authorization': `Bearer ${accessToken}`
+          },
           params: {
             page
           }
         });
-        const movies = response.data;
-        setMovies(movies);
+        const myLists = response.data;
+        setMyLists(myLists);
       } catch (error) {
-        console.log('[List useEffect] error => ', error);
+        console.log('[MyLists useEffect] error => ', error);
         setStatus(STATUSES.REJECTED);
         setError(error);
       }
     })();
-  }, [page, listId, accessToken]);
+  }, [page, accountId, accessToken]);
 
   useEffect(() => {
-    if (!movies) return;
+    if (!myLists) return;
 
     setStatus(STATUSES.RESOLVED);
-  }, [movies]);
+  }, [myLists]);
 
   if (status === STATUSES.IDLE || status === STATUSES.PENDING) {
     return <Loader />;
@@ -75,35 +74,22 @@ const List = () => {
     return (
       <NotFound
         title='Sorry!'
-        subtitle={error?.message ?? 'We can\'t find the page you\'re looking for...'} />
+        subtitle={error?.message ?? 'There were no my lists...'} />
     );
   }
 
   if (status === STATUSES.RESOLVED) {
     return (
       <>
-        <Head>
-          <title>{movies.name ?? 'List'}</title>
-        </Head>
+        <Metadata title="My Lists" />
         <PageWrapper>
           <PaddingWrapper>
             <Header
-              title={movies.name ?? 'No name'}
-              subtitle={movies.description ?? 'No description'} />
-            <ListActions
-              listId={listId}
-              page={page}
-              listName={movies.name}
-              creatorAccountId={movies?.created_by?.id} />
-            {movies.total_results === 0 ? (
-              <NotFound
-                title='Sorry!'
-                subtitle='There were no items...' />
-            ) : (
-              <MovieList
-                movies={movies}
-                baseUrl={TMDB_IMAGE_BASE_URL} />
-            )}
+              title='My Lists'
+              subtitle='TMDB' />
+            <MyTMDBLists
+              myLists={myLists}
+              baseUrl={TMDB_IMAGE_BASE_URL} />
           </PaddingWrapper>
         </PageWrapper>
       </>
@@ -111,4 +97,4 @@ const List = () => {
   }
 };
 
-export default List;
+export default withAuth(MyLists);
