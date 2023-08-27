@@ -93,7 +93,7 @@ const ListNavigation = ({ listId }) => {
           selected={pathname === listLink.href.pathname}>
           <Link
             href={listLink.href}>
-            <a>{listLink.title}</a>
+            {listLink.title}
           </Link>
         </NavbarItem>  
       ))}

@@ -63,49 +63,47 @@ const ListActions = ({
     }
   ];
 
-  return (
-    <>
-      <Modal
-        opened={shareModalOpened}
-        onClose={closeShareModalHandler}
-        title={`Share ${listName}`}
-        body={
-          <TextInput
-            id='share-link'
-            label='URL'
-            defaultValue={
-              `${typeof location !== 'undefined' ? location.origin : ''}/list?${[QUERY_PARAMS.ID]}=${listId}&${[QUERY_PARAMS.PAGE]}=${page}`
-            }
-            readOnly />
-        } />
-      <Navbar>
-        {listActions.map(listAction => (
-          <NavbarItem
-            key={listAction.title}
-            invisible={listAction.invisible}>
-            {listAction.href ? (
-              <Link
-                href={listAction.href}>
-                <a>
-                  <TextButton style={{padding: 0}}>
-                    {listAction.title}
-                  </TextButton>
-                </a>
-              </Link>
-            ) : (
-              <a>
-                <TextButton
-                  style={{padding: 0}}
-                  onClick={listAction.onClick}>
-                  {listAction.title}
-                </TextButton>
-              </a>
-            )}
-          </NavbarItem>  
-        ))}
-      </Navbar>
-    </>
-  );
+  return <>
+    <Modal
+      opened={shareModalOpened}
+      onClose={closeShareModalHandler}
+      title={`Share ${listName}`}
+      body={
+        <TextInput
+          id='share-link'
+          label='URL'
+          defaultValue={
+            `${typeof location !== 'undefined' ? location.origin : ''}/list?${[QUERY_PARAMS.ID]}=${listId}&${[QUERY_PARAMS.PAGE]}=${page}`
+          }
+          readOnly />
+      } />
+    <Navbar>
+      {listActions.map(listAction => (
+        <NavbarItem
+          key={listAction.title}
+          invisible={listAction.invisible}>
+          {listAction.href ? (
+            (<Link
+              href={listAction.href}>
+
+              <TextButton style={{padding: 0}}>
+                {listAction.title}
+              </TextButton>
+
+            </Link>)
+          ) : (
+            <a>
+              <TextButton
+                style={{padding: 0}}
+                onClick={listAction.onClick}>
+                {listAction.title}
+              </TextButton>
+            </a>
+          )}
+        </NavbarItem>  
+      ))}
+    </Navbar>
+  </>;
 };
 
 export default ListActions;

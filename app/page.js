@@ -1,3 +1,4 @@
+'use client'
 /**
  * TODO:
  * https://nextjs.org/blog/next-9#automatic-partial-static-export RE: https://github.com/vercel/next.js/discussions/10874
@@ -7,8 +8,7 @@
  */
 
 import { useEffect } from 'react';
-import Head from 'next/head';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { animateScroll as scroll } from 'react-scroll';
 
@@ -99,16 +99,7 @@ const Home = () => {
 
   return (
     <>
-      <Head>
-        {/* MEMO: inspired by https://addyosmani.com/blog/preload-hero-images/ */}
-        <link
-          rel='preload'
-          as='fetch'
-          // TODO: page is hardcoded
-          href={`${TMDB_API_BASE_URL}/${TMDB_API_VERSION}/movie/popular?api_key=${TMDB_API_KEY}&page=1`}
-          crossOrigin='true' />
-        <title>{`${general.selectedMenuItemName} Movies`}</title>
-      </Head>
+      <Metadata title={`${general.selectedMenuItemName} Movies`} />
       {movies.loading ? (
         <Loader />
       ) : (

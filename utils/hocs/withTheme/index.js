@@ -1,4 +1,5 @@
 
+import React from "react";
 /**
  * TODO:
  * Could remove all theme prop and just wrap it with this HOC whenever the component needs theme properties for consistency and simplicity. 
@@ -19,6 +20,6 @@ function withTheme(WrappedComponent) {
       </ThemeContext.Consumer>
     );
   });
-};
+}
 
 export default withTheme;

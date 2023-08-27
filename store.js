@@ -1,5 +1,3 @@
-
-
 import { useMemo } from 'react';
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
@@ -51,4 +49,4 @@ export const initializeStore = (preloadedState) => {
 export function useStore(initialState) {
   const store = useMemo(() => initializeStore(initialState), [initialState]);
   return store;
-};
+}

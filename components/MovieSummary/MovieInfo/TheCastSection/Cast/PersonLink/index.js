@@ -18,7 +18,8 @@ const PersonLink = ({
           [QUERY_PARAMS.ID]: person.id,
           [QUERY_PARAMS.PAGE]: 1
         }
-      }}>
+      }}
+      legacyBehavior>
       <a>
         <Profile src={`${baseUrl}w${W185H278.WIDTH}${person.profile_path}`} alt={person.name} />
       </a>

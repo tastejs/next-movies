@@ -11,13 +11,10 @@ const LinkButton = ({
   buttonProps = {}
 }) => (
   <>
-    <Link
-      passHref
-      as={as}
-      href={href}>
-      <a {...anchorProps}>
-        <Button {...buttonProps} />
-      </a>
+    <Link passHref as={as} href={href} {...anchorProps}>
+
+      <Button {...buttonProps} />
+
     </Link>
   </>
 );

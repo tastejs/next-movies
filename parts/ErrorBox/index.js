@@ -1,7 +1,4 @@
-
-
 import { useEffect } from 'react';
-import Head from 'next/head';
 import { useDispatch, useSelector } from 'react-redux';
 import { animateScroll as scroll } from 'react-scroll';
 import clsx from 'clsx';
@@ -83,9 +80,7 @@ const ErrorBox = ({
   return (
     <>
       <PageWrapper className='error-box'>
-        <Head>
-          <title>Oooops!</title>
-        </Head>
+        <Metadata title="Oooops!" />
         <div className='title-section'>
           <Title theme={theme}>
             {statusCode

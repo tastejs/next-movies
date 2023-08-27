@@ -1,8 +1,9 @@
+'use client'
 
 
 import { useEffect } from 'react';
 import Router, { useRouter } from 'next/router';
-import Head from 'next/head';
+import { Metadata } from 'next/head';
 import { useDispatch, useSelector } from 'react-redux';
 import { animateScroll as scroll } from 'react-scroll';
 
@@ -76,9 +77,9 @@ const Movie = () => {
 
   return (
     <PageWrapper>
-      <Head>
+      <Metadata>
         <title>{`${movie.title} - Movie Library`}</title>
-      </Head>
+      </Metadata>
       <MovieSummary
         baseUrl={baseUrl}
         movie={movie} />

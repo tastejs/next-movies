@@ -26,54 +26,52 @@ const TheUser = ({
     isAuthenticated
   } = useAuth();
 
-  return (
-    <>
-      {isAuthenticated ? (
-        <DropdownMenu
-          align='right'
-          DropElement={() => (
-            <AccountCircleIconButton
-              aria-label='User Profile'
-              color={COLOR_TYPES.SECONDARY}
-              className={className}
-              style={style} />
-          )}>
-          <DropdownMenuItem>
-            <Link href={{
-              pathname: LINKS.ADD_OR_EDIT_LIST.HREF
-            }}>
-              <a>Create New List</a>
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Link href={{
-              pathname: LINKS.MY_LISTS.HREF,
-              query: {
-                [QUERY_PARAMS.PAGE]: 1
-              }
-            }}>
-              <a>My Lists</a>
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <TextButton
-              style={{padding: 0}}
-              onClick={logout}>
-              Logout
-            </TextButton>
-          </DropdownMenuItem>
-        </DropdownMenu>
-      ) : (
-        <ExitToAppIconButton
-          aria-label='Log In'
-          color={COLOR_TYPES.SECONDARY}
-          className={className}
-          style={style}
-          loading={isPending}
-          onClick={login} />
-      )}
-    </>
-  );
+  return <>
+    {isAuthenticated ? (
+      <DropdownMenu
+        align='right'
+        DropElement={() => (
+          <AccountCircleIconButton
+            aria-label='User Profile'
+            color={COLOR_TYPES.SECONDARY}
+            className={className}
+            style={style} />
+        )}>
+        <DropdownMenuItem>
+          <Link href={{
+            pathname: LINKS.ADD_OR_EDIT_LIST.HREF
+          }}>
+            Create New List
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link href={{
+            pathname: LINKS.MY_LISTS.HREF,
+            query: {
+              [QUERY_PARAMS.PAGE]: 1
+            }
+          }}>
+            My Lists
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <TextButton
+            style={{padding: 0}}
+            onClick={logout}>
+            Logout
+          </TextButton>
+        </DropdownMenuItem>
+      </DropdownMenu>
+    ) : (
+      <ExitToAppIconButton
+        aria-label='Log In'
+        color={COLOR_TYPES.SECONDARY}
+        className={className}
+        style={style}
+        loading={isPending}
+        onClick={login} />
+    )}
+  </>;
 };
 
 export default TheUser;
